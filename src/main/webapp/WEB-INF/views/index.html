@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All users</title>
+    <style>
+        h1, h2, h3, h4 {
+            margin: 50px auto 50px auto;
+            text-align: center;
+        }
+
+        #usersStyle {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #usersStyle td, #usersStyle th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #usersStyle tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #usersStyle tr:hover {
+            background-color: #ddd;
+        }
+
+        #usersStyle th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p>User id click - view, edit or delete user!</p>
+    <p><a th:href="@{/users/new}">Add new user!</a></p>
+</div>
+
+<table id="usersStyle">
+    <!--    <table>-->
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getId()}"></a></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getLastName()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
