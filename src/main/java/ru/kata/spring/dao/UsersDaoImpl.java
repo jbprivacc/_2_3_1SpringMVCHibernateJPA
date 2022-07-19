@@ -7,6 +7,7 @@ import ru.kata.spring.model.Users;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.validation.Valid;
 import java.util.List;
 
 @Repository
@@ -32,7 +33,7 @@ public class UsersDaoImpl implements UsersDao {
     }
 
     @Override
-    public void update(long id, Users updatedUser) {
+    public void update(long id, @Valid Users updatedUser) {
         Users user = entityManager.find(Users.class, id);
         user.setName(updatedUser.getName());
         user.setLastName(updatedUser.getLastName());

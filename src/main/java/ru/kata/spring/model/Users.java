@@ -11,7 +11,7 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @Column(name = "name")
     @NotEmpty(message = "Enter name")
@@ -28,18 +28,18 @@ public class Users {
     public Users() {
     }
 
-    public Users(int id, String name, String lastName, String email) {
+    public Users(long id, String name, String lastName, String email) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
