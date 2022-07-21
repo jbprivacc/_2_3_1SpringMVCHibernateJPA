@@ -7,6 +7,7 @@ import ru.kata.spring.model.Users;
 import ru.kata.spring.repository.UsersRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsersServiceImpl implements UsersSERVICE {
@@ -34,8 +35,8 @@ public class UsersServiceImpl implements UsersSERVICE {
 
     @Transactional
     @Override
-    public Users get(long id) {
-        return usersRepository.getReferenceById(id);
+    public Optional<Users> get(long id) {
+        return usersRepository.findById(id);
     }
 
     @Transactional(readOnly = true)
@@ -47,6 +48,6 @@ public class UsersServiceImpl implements UsersSERVICE {
     @Transactional
     @Override
     public void delete(long id) {
-        usersRepository.delete(id);
+        usersRepository.deleteById(id);
     }
 }

@@ -6,11 +6,13 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-@Getter
-@Setter
-@ToString
+
 @RequiredArgsConstructor
+@Builder
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users_info")
 public class Users {
 
@@ -30,13 +32,6 @@ public class Users {
     @Column(name = "email")
     @Email(message = "Invalid email")
     private String email;
-
-    public Users(long id, String name, String lastName, String email) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-    }
 
     public long getId() {
         return id;
@@ -72,8 +67,5 @@ public class Users {
 
 
 
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
+
 }

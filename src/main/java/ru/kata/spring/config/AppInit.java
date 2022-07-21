@@ -1,6 +1,5 @@
 package ru.kata.spring.config;
 
-//plays web.xml role
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import javax.servlet.ServletContext;
