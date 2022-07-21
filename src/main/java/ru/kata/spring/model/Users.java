@@ -1,9 +1,15 @@
 package ru.kata.spring.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Entity
 @Table(name = "users_info")
 public class Users {
@@ -24,9 +30,6 @@ public class Users {
     @Column(name = "email")
     @Email(message = "Invalid email")
     private String email;
-
-    public Users() {
-    }
 
     public Users(long id, String name, String lastName, String email) {
         this.id = id;
@@ -65,5 +68,12 @@ public class Users {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

@@ -22,7 +22,7 @@ public class UsersController {
     }
 
 
-    @GetMapping() //list of users //correct
+    @GetMapping() //list of users //correct /////
     public String index(Model model) {
         model.addAttribute("users", userService.listUsers());
         return "/users/index";
@@ -57,7 +57,7 @@ public class UsersController {
         if (bindingResult.hasErrors()){
             return "users/edit";
         }
-        userService.update(id, user);
+        userService.update(user);
         return  "redirect:/users";
     }
 
