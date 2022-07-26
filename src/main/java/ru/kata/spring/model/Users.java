@@ -1,9 +1,18 @@
 package ru.kata.spring.model;
 
+import lombok.*;
+import lombok.experimental.Accessors;
+import org.hibernate.Hibernate;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+@ToString
+@RequiredArgsConstructor
+@Getter
+@Setter
+@Accessors(chain = true)
 @Entity
 @Table(name = "users_info")
 public class Users {
@@ -25,9 +34,6 @@ public class Users {
     @Email(message = "Invalid email")
     private String email;
 
-    public Users() {
-    }
-
     public Users(long id, String name, String lastName, String email) {
         this.id = id;
         this.name = name;
@@ -35,35 +41,16 @@ public class Users {
         this.email = email;
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Users users = (Users) o;
+        return false;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

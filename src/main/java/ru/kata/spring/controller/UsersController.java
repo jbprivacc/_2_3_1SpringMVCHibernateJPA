@@ -25,13 +25,13 @@ public class UsersController {
     @GetMapping() //list of users //correct
     public String index(Model model) {
         model.addAttribute("users", userService.listUsers());
-        return "/users/index";
+        return "users/index";
     }
 
     @GetMapping("/{id}") //shows user by given id //correct
     public String show(@PathVariable("id") long id, Model model) {
         model.addAttribute("user", userService.get(id));
-        return "/users/user";
+        return "users/user";
     }
 
     @GetMapping("/new")// adds new user //correct
@@ -48,7 +48,7 @@ public class UsersController {
     @GetMapping("/{id}/edit") //edit user by his id //correct
     public String edit(Model model, @PathVariable("id") long id) {
         model.addAttribute("user", userService.get(id));
-        return "/users/edit";
+        return "users/edit";
     }
 
     @PatchMapping("/{id}/edit") //

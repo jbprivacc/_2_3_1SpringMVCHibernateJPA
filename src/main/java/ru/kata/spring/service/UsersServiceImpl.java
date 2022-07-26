@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.dao.UsersDao;
 import ru.kata.spring.model.Users;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Service
@@ -18,24 +19,29 @@ public class UsersServiceImpl implements UsersSERVICE {
         this.usersDao = usersDao;
     }
 
+    @NotNull
     @Transactional
     @Override
     public void add(Users user) {
         usersDao.add(user);
     }
 
+    @NotNull
     @Transactional(readOnly = true)
     @Override
     public List<Users> listUsers() {
         return usersDao.listUsers();
     }
 
+    @NotNull
     @Transactional
     @Override
     public Users get(long id) {
         return usersDao.show(id);
     }
 
+
+    @NotNull
     @Transactional(readOnly = true)
     @Override
     public void update(long id, Users updatedUser) {
