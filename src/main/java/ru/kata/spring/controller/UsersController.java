@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.model.Users;
-import ru.kata.spring.service.UsersSERVICE;
+import ru.kata.spring.service.UsersService;
 
 import javax.validation.Valid;
 
@@ -14,10 +14,10 @@ import javax.validation.Valid;
 @RequestMapping("/users")
 public class UsersController {
 
-    private final UsersSERVICE userService;
+    private final UsersService userService;
 
     @Autowired
-    public UsersController(UsersSERVICE userService) {
+    public UsersController(UsersService userService) {
         this.userService = userService;
     }
 
@@ -57,7 +57,7 @@ public class UsersController {
         if (bindingResult.hasErrors()){
             return "users/edit";
         }
-        userService.update(id, user);
+        userService.update(id);
         return  "redirect:/users";
     }
 

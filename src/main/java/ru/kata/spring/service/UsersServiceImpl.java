@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Service
-public class UsersServiceImpl implements UsersSERVICE {
+public class UsersServiceImpl implements UsersService {
 
     private final UsersDao usersDao;
 
@@ -44,8 +44,8 @@ public class UsersServiceImpl implements UsersSERVICE {
     @NotNull
     @Transactional(readOnly = true)
     @Override
-    public void update(long id, Users updatedUser) {
-        usersDao.update(id, updatedUser);
+    public void update(long id) {
+        usersDao.update(id);
     }
 
     @Transactional
