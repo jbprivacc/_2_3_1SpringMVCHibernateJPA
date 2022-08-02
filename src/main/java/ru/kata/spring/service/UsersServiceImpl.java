@@ -12,9 +12,10 @@ import java.util.List;
 @Service
 public class UsersServiceImpl implements UsersService {
 
+    @Autowired
     private final UsersDao usersDao;
 
-    @Autowired
+
     public UsersServiceImpl(UsersDao usersDao) {
         this.usersDao = usersDao;
     }
