@@ -1,17 +1,13 @@
 package ru.kata.spring.dao;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.model.Users;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.validation.Valid;
 import java.util.List;
 
 @Repository
-@Transactional
 public class UsersDaoImpl implements UsersDao {
     @PersistenceContext
     private EntityManager entityManager;

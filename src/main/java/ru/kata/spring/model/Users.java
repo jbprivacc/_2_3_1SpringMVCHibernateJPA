@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+
 @ToString
 @RequiredArgsConstructor
 @Getter
@@ -33,6 +34,7 @@ public class Users {
     @Column(name = "email")
     @Email(message = "Invalid email")
     private String email;
+
 
     public Users(long id, String name, String lastName, String email) {
         this.id = id;

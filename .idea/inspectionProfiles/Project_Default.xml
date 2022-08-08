@@ -21,6 +21,7 @@
         <list>
           <option value="org.hibernate.validator:hibernate-validator" />
           <option value="org.hibernate:hibernate-core" />
+          <option value="mysql:mysql-connector-java" />
         </list>
       </option>
     </inspection_tool>

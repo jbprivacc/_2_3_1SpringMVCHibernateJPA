@@ -1,9 +1,9 @@
 {
   "properties": [
     {
-      "name": "spring.datasourc.password",
+      "name": "spring.datasource.password",
       "type": "java.lang.String",
-      "description": "Description for spring.datasourc.password."
+      "description": "Description for spring.datasource.password."
     },
     {
       "name": "driver-class-name",

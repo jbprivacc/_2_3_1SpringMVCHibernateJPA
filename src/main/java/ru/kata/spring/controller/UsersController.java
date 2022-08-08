@@ -14,9 +14,10 @@ import javax.validation.Valid;
 @RequestMapping("/users")
 public class UsersController {
 
-    @Autowired
+
     private final UsersService userService;
 
+    @Autowired
     public UsersController(UsersService userService) {
         this.userService = userService;
     }
